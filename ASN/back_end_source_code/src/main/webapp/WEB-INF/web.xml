@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+version="2.5">
+  <display-name>AfireSocialNetwork</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>    
+  </welcome-file-list>  
+  
+  <!-- THis context load listener will tie the lifecyle of spring to the lifecycle
+  of tomcat itself. In short, it's an event listener -->
+  <listener>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  
+  <servlet>
+  	  <!-- creating variable name  -->
+      <servlet-name>dispatcher</servlet-name>
+      <!-- this is spring's already created servlet...
+          it'll represent our front controller/master servlet -->
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  		<!-- referring variable name previously created -->
+      <servlet-name>dispatcher</servlet-name>
+      <url-pattern>/api/*</url-pattern> 
+  </servlet-mapping>
+  
+</web-app>

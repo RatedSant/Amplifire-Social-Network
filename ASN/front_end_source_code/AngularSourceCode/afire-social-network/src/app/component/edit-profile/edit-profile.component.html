@@ -1,0 +1,194 @@
+
+<div>
+
+  <mat-card class="temp-card">
+
+    <mat-horizontal-stepper>
+
+      <form #editingForm="ngForm">
+
+        <mat-step class="conteinerB" label="Accont Information">  
+        <!-- <ng-template matStepLabel>Account Information</ng-template> -->
+
+        <div class="registerItems">
+
+          <h2>Change your Username</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+
+            <mat-label>Username</mat-label>
+            <input matInput required minlength="5" #name="ngModel"
+              name="currentUser.asnUser" [(ngModel)]="currentUser.asnUser">
+
+            <div style="color:red;" *ngIf="name.errors && ( name.dirty || name.touched)">
+              <small *ngIf="name.errors.required"> username is required</small>
+              <small *ngIf="name.errors.minlength"> username must be at least 5 letters</small>
+            </div>
+
+          </mat-form-field>
+
+        </div>
+
+        <div class="registerItems">
+
+          <h2>Change your First Name</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+
+            <mat-label>First Name</mat-label>
+            <input matInput required #FirstName="ngModel" name="currentUser.asnUserFirstname"
+              [(ngModel)]="currentUser.asnUserFirstname">
+
+            <div style="color:red;" *ngIf="FirstName.errors && ( FirstName.dirty || FirstName.touched)">
+              <small *ngIf="FirstName.errors.required"> First Name is required</small>
+            </div>
+
+          </mat-form-field>
+
+        </div>
+
+        <div class="registerItems">
+          <h2>Change your Last Name</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Last Name</mat-label>
+            <input matInput required #LastName="ngModel" name="user.asnUserLastname"
+              [(ngModel)]="currentUser.asnUserLastname">
+
+            <div style="color:red;" *ngIf="LastName.errors && ( LastName.dirty || LastName.touched)">
+              <small *ngIf="LastName.errors.required"> Last Name is required</small>
+            </div>
+
+          </mat-form-field>
+        </div>
+
+        <div class="registerItems">
+          <h2>Change your Email</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput type="email" required email #Email="ngModel" name="user.asnUserEmail"
+              [(ngModel)]="currentUser.asnUserEmail">
+
+            <div style="color:red;" *ngIf="Email.errors && ( Email.dirty || Email.touched)">
+              <small *ngIf="Email.errors.required"> Email is required</small>
+              <small *ngIf="Email.errors.email"> This is not a valid email</small>
+            </div>
+
+          </mat-form-field>
+        </div>
+
+
+        <div class="registerItems">
+          <h2>Change your Password</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Password</mat-label>
+            <input type="password" required minlength="8" matInput
+              [class.is-invalid]="password.invalid && password.touched"  #password="ngModel" name="currentUser.asnUserPassword"
+              [(ngModel)]="currentUser.asnUserPassword">
+
+            <div style="color:red;" *ngIf="password.errors && ( password.dirty || password.touched)">
+              <small *ngIf="password.errors.required"> Password is required</small>
+              <small *ngIf="password.errors.minlength">Password must be at least 8 chars</small>
+            </div>
+
+
+          </mat-form-field>
+        </div>
+
+        <div class="registerItems">
+          <h2>Change your Profile Image</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Profile Image</mat-label>
+            <input type="url" matInput
+            [class.is-invalid]="imageURL.invalid && imageURL.touched" hidden #imageURL="ngModel" name="currentUser.asnUserProfileImageUrl"
+            [(ngModel)]="currentUser.asnUserProfileImageUrl">
+            <img mat-card-xl-image *ngIf="oldImage == currentUser.asnUserProfileImageUrl "[src]="currentUser.asnUserProfileImageUrl">
+            <img mat-card-xl-image *ngIf="selectedImageUrl" [src]="selectedImageUrl" />
+            
+            
+          </mat-form-field>
+        </div>
+        <div class="_dspFlex flx_row  imageUpload">
+          <div class="uploadContainer">
+            <div class="bezel">
+              <div class="icon">
+                <mat-icon>upload</mat-icon>
+              </div>
+              <div class="label">
+                <h3>
+                  Click to Upload file
+                </h3>
+              </div>
+            </div>
+            <input class="uploadInput" type="file" 
+            name="user.asnUserProfileImageUrl"
+            [(ngModel)]="currentUser.asnUserProfileImageUrl"
+            accept="image/*" (change)="detectFiles($event)">
+          </div>
+        </div>
+        
+        
+        
+        
+
+
+
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel>Profile Information</ng-template>
+            <div class="registerItems">
+              <h2>Change Profile Description</h2>
+              <mat-form-field appearance="outline">
+    
+                <mat-label>About Me</mat-label>
+                <textarea type="text-box" matInput maxlength="200" #descript="ngModel" [class.is-invalid]="descript.invalid && descript.touched"
+                  name="currentUser.asnProfileDescript" [(ngModel)]="currentUser.asnProfileDescript"></textarea>
+  
+              </mat-form-field>
+            </div>
+
+            <div class="registerItems">
+              <h2>Change Hobby</h2>
+              <mat-form-field appearance="outline">
+    
+                <mat-label>Favorite Hobby</mat-label>
+                <input matInput maxlength="30" #hobby="ngModel" [class.is-invalid]="hobby.invalid && hobby.touched"
+                  name="currentUser.asnProfileHobby" [(ngModel)]="currentUser.asnProfileHobby">
+  
+              </mat-form-field>
+            </div>
+
+            <div class="registerItems">
+              <h2>Change Sport</h2>
+              <mat-form-field appearance="outline">
+    
+                <mat-label>Favorite Sport</mat-label>
+                <input matInput maxlength="25" #sport="ngModel" [class.is-invalid]="sport.invalid && sport.touched"
+                  name="currentUser.asnProfileSport" [(ngModel)]="currentUser.asnProfileSport">
+  
+              </mat-form-field>
+            </div>
+
+            <div class="registerItems">
+              <h2>Change Food</h2>
+              <mat-form-field appearance="outline">
+    
+                <mat-label>Favorite Food</mat-label>
+                <input matInput maxlength="50" #food="ngModel" [class.is-invalid]="food.invalid && food.touched"
+                  name="currentUser.asnProfileFood" [(ngModel)]="currentUser.asnProfileFood">
+  
+              </mat-form-field>
+            </div>
+
+          </mat-step>
+        
+        </form>
+          
+        </mat-horizontal-stepper>
+        
+             <div style="text-align: center;">
+        
+               <button mat-raised-button color="warn"
+               [disabled]="editingForm.form.invalid"
+              #submitted (click)="updateUser()" style="margin-top: 5%;">Update Profile</button>
+            </div>    
+  </mat-card>
+</div>

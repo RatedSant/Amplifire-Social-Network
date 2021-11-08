@@ -1,0 +1,36 @@
+/*body background linear gradient
+everything centered ;-)
+*/
+
+body {
+    background-image: linear-gradient(to bottom right, rgba(153, 227, 245, 0), rgb(139, 207, 224));
+}
+
+h1 {
+    text-align: center;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+._dspFlex {
+    display: flex;
+}
+
+.flexSpace {
+    flex: 1;
+    flex-basis: 0.000000001px;
+}
+
+.flx_row {
+    flex-direction: row;
+}

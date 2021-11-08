@@ -1,0 +1,81 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.example-card {
+    margin-top: 15%;
+    max-width: 800px;
+}
+
+.textspace{
+ height: 200px;
+ width: 800px;
+}
+
+.mat-card-header .mat-card-title {
+  font-size: 40px;
+  margin-top: 33px;
+}
+
+.mat-card-avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.uploadContainer {
+    height: 180px;
+    width: 250px;
+    position: relative;
+}
+
+.uploadContainer .uploadInput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+
+
+.uploadContainer .bezel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 9px;
+    border: 1px solid #dadce0;
+}
+
+.uploadContainer .bezel .label {
+    left: 50%;
+    margin-left: -70px;
+    top: 60%;
+    position: absolute;
+}
+
+.uploadContainer .bezel .label h3 {
+    font: 500 15px /19px 'Google Sans', 'GoogleSans-Local', 'Roboto';
+    letter-spacing: .11px;
+}
+
+.uploadContainer .bezel .icon {
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    top: 40%;
+    width: 30px;
+}
+
+.imageUpload {
+    margin: 15px 5px;
+}
+
+.imageUpload img {
+    margin-left: 15px;
+}

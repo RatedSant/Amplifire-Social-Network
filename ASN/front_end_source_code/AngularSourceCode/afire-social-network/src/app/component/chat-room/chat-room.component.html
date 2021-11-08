@@ -1,0 +1,50 @@
+<div>
+
+    <p>Welcome to the Chat Room <strong>Users Connected: {{connected}}</strong></p>
+
+    <div id="messagesList" class="messageContainerScroll">
+
+        <div class="_dspFlex chatItm" *ngFor="let msg of messages" [ngClass]="{'toLeft': isSameUser(msg.user)}">
+            <div class="logo_user">
+                <img src="{{msg.user.asnUserProfileImageUrl}}" alt="" />
+            </div>
+            <div class="msg_text">
+                <span>
+                    {{msg.user.asnUserFirstname}}
+                </span>
+                <p>
+                    {{msg.message}}
+                </p>
+                <div class="date">
+                    {{msg.time}}
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div class="_dspFlex chatItm">
+            <div class="logo_user">
+                <img src="https://firebasestorage.googleapis.com/v0/b/afiresocialnetwork.appspot.com/o/images%2Fhqdefault.jpg?alt=media&token=571ac3fb-4799-4aa4-938a-5aa2d5b0ac1" alt="" />
+            </div>
+            <div class="msg_text">
+                <span>
+                     Gonzalez
+                </span>
+                <p>
+                    este es el mensaje de otro
+                </p>
+                <div class="date">
+                    10:23AM
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+    <div class="_dspFlex chat_button">
+        <input type="text" [(ngModel)]="message" />
+        <button (click)="preparePayload()">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div>
+
+</div>

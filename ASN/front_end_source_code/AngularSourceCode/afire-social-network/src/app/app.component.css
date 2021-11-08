@@ -1,0 +1,89 @@
+.spaces {
+    margin-bottom: 1.5%;
+}
+
+mat-sidenav-container {
+    background-color: green;
+    height: 20%;
+}
+
+mat-sidenav,
+mat-sidenav-content {
+    padding: 16px;
+}
+
+mat-sidenav {
+    background-color: rgb(30, 129, 43);
+    width: 12%;
+}
+
+.floatSection {
+    position: fixed;
+    top: 80px;
+    left: 2%;
+    margin-left: 2%;
+    min-width: 20%;
+}
+
+.floatSection.right {
+    right: 25px;
+}
+
+.floatSection.left {
+    left: 10px;
+}
+
+.principal {
+    display: flex;
+}
+
+.box-1 {
+    flex: 1;
+}
+
+.box-2 {
+    flex: 2;
+}
+
+.box-3 {
+    flex: 1;
+}
+
+.postedInfo .imageUserPost {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin-right: 7px;
+}
+
+.postedInfo .imageUserPost img {
+    height: 100%;
+    width: 100%;
+    z-index: inherit;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.userPost a {
+    font: 600 15px /19px 'Google Sans', 'GoogleSans-Local', 'Roboto';
+    letter-spacing: .11px;
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+.boxChat {
+    border: 1px solid #dadce0;
+    padding: 9px 11px;
+    border-radius: 9px;
+}
+
+@media only screen and (max-width: 680px) {
+    .box-1,
+    .box-3 {
+        display: none;
+        flex: 0;
+    }
+    .box-2 {
+        flex: 1;
+    }
+}

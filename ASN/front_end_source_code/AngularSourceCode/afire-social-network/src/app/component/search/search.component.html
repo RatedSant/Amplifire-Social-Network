@@ -1,0 +1,14 @@
+<div *ngFor="let user of userResults" class="container box_shd">
+    <div class="_dspFlex flx_row postedInfo">
+        <div class="imageUserPost ">
+            <img *ngIf="(user.asnUserProfileImageUrl)" src="{{user.asnUserProfileImageUrl}}" />
+        </div>
+        <div>
+            <strong class="userPost">
+                <a [routerLink]="['/profile', user.asnUserId]">{{user.asnUserFirstname + " " +
+                    user.asnUserLastname}}</a> <br>
+            </strong>
+            <mat-card-subtitle class="change-subtitle">@{{user.asnUser}}</mat-card-subtitle>
+        </div>
+    </div>
+</div>

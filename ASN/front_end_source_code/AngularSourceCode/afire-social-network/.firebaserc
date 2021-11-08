@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "afiresocialnetwork": {
+      "hosting": {
+        "afire-social-network": [
+          "afiresocialnetwork"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "afiresocialnetwork"
+  }
+}

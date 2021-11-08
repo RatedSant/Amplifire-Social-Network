@@ -1,0 +1,145 @@
+
+<div class="register">
+  
+  <mat-card class="temp-card">
+
+  <mat-vertical-stepper class="container">
+
+    <!-- Develop the full page which looks fine for the user to interact with -->
+
+    <form #userForm="ngForm">
+
+      
+      <mat-step class="conteinerB" label="Accont Information">
+      
+        <div class="registerItems">
+          <h2>Create your username</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+            
+              <mat-label>Username</mat-label>
+              <input matInput required minlength="5"
+              #name="ngModel" 
+              [class.is-invalid]="name.invalid && name.touched"
+              name="user.asnUser"
+              [(ngModel)]="user.asnUser">
+                
+                <div style="color:red;" *ngIf="name.errors && ( name.dirty || name.touched)">
+                  <small *ngIf="name.errors.required"> Name is required</small>
+                  <small *ngIf="name.errors.minlength">Name must be at least 5 letters</small>
+                </div>
+
+              </mat-form-field>
+        </div> 
+
+          <div class="registerItems">
+            <h2>Create your password</h2>
+            <mat-form-field appearance="outline" hideRequiredMarker>
+
+              <mat-label>Password</mat-label>
+              <input type="password" required minlength="8" matInput 
+              [class.is-invalid]="password.invalid && password.touched"
+              #password="ngModel"
+              name="user.asnUserPassword"
+              [(ngModel)]="user.asnUserPassword">
+
+              <div style="color:red;" *ngIf="password.errors && ( password.dirty || password.touched)">
+                <small *ngIf="password.errors.required"> Password is required</small>
+                <small *ngIf="password.errors.minlength">Password must be at least 8 chars</small>
+              </div>
+
+
+            </mat-form-field>
+        </div>
+
+      </mat-step>
+
+      <mat-step label="Personal Information">
+
+        <div class="registerItems">
+          <h2>Enter your first name</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+
+            <mat-label>First Name</mat-label>
+            <input matInput required
+            #FirstName="ngModel"
+            name="user.asnUserFirstname"
+            [(ngModel)]="user.asnUserFirstname">
+
+            <div style="color:red;" *ngIf="FirstName.errors && ( FirstName.dirty || FirstName.touched)">
+              <small *ngIf="FirstName.errors.required"> First Name is required</small>
+            </div>
+
+          </mat-form-field>
+
+        </div>
+
+        <div class="registerItems">
+          <h2>Enter your last name</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+
+            <mat-label>Last Name</mat-label>
+            <input matInput required             
+            #LastName="ngModel"
+            name="user.asnUserLastname"
+            [(ngModel)]="user.asnUserLastname">
+
+            <div style="color:red;" *ngIf="LastName.errors && ( LastName.dirty || LastName.touched)">
+              <small *ngIf="LastName.errors.required"> Last Name is required</small>
+            </div>
+
+          </mat-form-field>
+        </div>
+
+        <div class="registerItems">
+          <h2>Enter your email</h2>
+          <mat-form-field appearance="outline" hideRequiredMarker>
+
+            <mat-label>Email</mat-label>
+            <input type="email" matInput type="email" required email
+            #Email="ngModel"
+            name="user.asnUserEmail"
+            [(ngModel)]="user.asnUserEmail">
+
+            <div style="color:red;" *ngIf="Email.errors && ( Email.dirty || Email.touched)">
+              <small *ngIf="Email.errors.required"> Email is required</small>
+              <small *ngIf="Email.errors.email"> This is not a valid email</small>
+            </div>
+
+          </mat-form-field>
+        </div>
+
+      </mat-step>
+
+      <mat-step label="Upload Picture">
+
+        <div class="_dspFlex flx_row  imageUpload">
+            <div class="uploadContainer">
+                <div class="bezel">
+                    <div class="icon">
+                      <mat-icon>upload</mat-icon>
+                    </div>
+                    <div class="label">
+                      <h3>Click to Upload file</h3>
+                    </div>
+                  </div>
+                  <input required class="uploadInput" type="file" 
+                  name="user.asnUserProfileImageUrl"
+                  [(ngModel)]="user.asnUserProfileImageUrl"
+                  accept="image/*" (change)="detectFiles($event)">
+                </div>
+                <div style="margin-bottom: 30px;">
+
+                  <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" style="width: 250px; height: 180px;" />
+
+                </div>
+          </div>
+
+        <button mat-raised-button color="primary" [disabled]="userForm.form.invalid" #submitted (click)="createUser();submitted.disabled=true">Submit</button>
+
+      </mat-step>
+
+  </form> 
+
+  </mat-vertical-stepper>
+ </mat-card>
+</div>

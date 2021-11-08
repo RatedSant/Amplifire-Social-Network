@@ -1,0 +1,134 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    margin-top: 20px;
+}
+
+.content {
+    flex: 1;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+.postedInfo .imageUserPost {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin-right: 7px;
+}
+
+.postedInfo .imageUserPost img {
+    height: 100%;
+    width: 100%;
+    z-index: inherit;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.userPost a {
+    font: 600 15px /19px 'Google Sans', 'GoogleSans-Local', 'Roboto';
+    letter-spacing: .11px;
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+img {
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.chat_button {
+    padding: 7px 9px;
+    border-radius: 11px;
+    border: 1px solid #dadce0;
+}
+
+.chat_button input {
+    border: none;
+    width: calc(100% - 49px);
+    height: 32px;
+    font: 400 16px /19px 'Google Sans', 'GoogleSans-Local', 'Roboto';
+    letter-spacing: .11px;
+    outline: none;
+}
+
+.chat_button button {
+    border: none;
+    width: 45px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.logo_user {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+}
+
+.logo_user img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.msg_text {
+    margin-left: 7px;
+    width: 100%;
+    max-width: 16vw;
+}
+
+.msg_text span {
+    font: 500 13px /19px 'Roboto';
+    letter-spacing: .11px;
+    margin-left: 5px;
+}
+
+.msg_text p {
+    font: 400 16px /19px 'Google Sans', 'GoogleSans-Local', 'Roboto';
+    letter-spacing: .11px;
+    margin: 2px 5px 2px;
+    position: relative;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 96%;
+}
+
+.msg_text .date {
+    font: 500 12px /14px 'Google Sans', 'GoogleSans-Local', 'Roboto';
+    letter-spacing: .11px;
+    text-align: right;
+}
+
+.chatItm {
+    margin: 9px 1px;
+    border: 1px solid #dadce0;
+    padding: 2px;
+    border-radius: 7px;
+}
+
+.toRight {
+    flex-direction: row;
+}
+
+.toLeft {
+    flex-direction: row-reverse;
+}
+
+.messageContainerScroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 190px);
+    max-width: 96%;
+}

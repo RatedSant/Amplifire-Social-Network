@@ -1,0 +1,93 @@
+<mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [opened]="(isHandset$ | async) === true">
+        <mat-toolbar>Menu</mat-toolbar>
+
+        <div *ngIf="!getUserStatus()">
+
+            <mat-nav-list>
+                <a mat-list-item color="warn" (click)="drawer.toggle()" routerLink='/register'>Register</a>
+                <a mat-list-item color="warn" (click)="drawer.toggle()" routerLink='/login'>Go To Login</a>
+                <a mat-list-item color="warn" (click)="drawer.toggle()" routerLink='/news-feed'>News Feed </a>
+            </mat-nav-list>
+
+        </div>
+
+        <div *ngIf="getUserStatus()">
+            <mat-nav-list>
+                <a mat-list-item color="warn" (click)="drawer.toggle()" [routerLink]="['/profile', currentUser.asnUserId]">My Profile </a>
+                <!--<a mat-list-item color="warn" (click)="drawer.toggle()" routerLink='/create-post'>Create Post</a>-->
+                <a mat-list-item color="warn" (click)="drawer.toggle()" routerLink='/news-feed'>View Feed </a>
+                <a mat-list-item color="warn" (click)="drawer.toggle()" routerLink='/edit-profile'>Edit Profile </a>
+                <a mat-list-item color="warn" routerLink="/login" (click)="userLogout()" (click)="drawer.toggle()">Log Out</a>
+            </mat-nav-list>
+
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+
+
+
+
+        <mat-toolbar color="primary">
+
+            
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon md-48 aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="redirectMain()">
+                <mat-icon aria-label="Side nav toggle icon">home</mat-icon>
+            </button>
+
+            <button *ngIf="getUserStatus()" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="redirectProfile()">
+                <mat-icon aria-label="Side nav toggle icon">account_circle</mat-icon>
+            </button>
+            
+            
+            
+            <div class="_dspFlex w100">
+                
+                <div class="flexSpace"></div>
+                
+                <div class="middleSection">
+                    <!--<button type="button" aria-label="Toggle sidenav" mat-icon-button>
+                        <mat-icon aria-label="Side nav toggle icon">home</mat-icon>
+                    </button>
+                    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="goToChat()">
+                        <mat-icon aria-label="Side nav toggle icon">add</mat-icon>
+                    </button>-->
+                </div>
+
+                {{title}}
+                
+                <div class="flexSpace"></div>
+                
+
+                <div class="rightSection">
+                    <input #UserInput="ngModel" name="searchInput" [(ngModel)]="searchInput" />
+                </div>
+
+                <div class="middleSection">
+                    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)='runSearch()'>
+                        <mat-icon aria-label="Side nav toggle icon">search</mat-icon>
+                    </button>
+                </div>
+
+
+
+            </div>
+
+        </mat-toolbar>
+
+
+
+
+
+
+        <ng-content></ng-content>
+        <!-- Add Content Here -->
+    </mat-sidenav-content>
+</mat-sidenav-container>

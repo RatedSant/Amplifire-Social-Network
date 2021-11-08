@@ -1,0 +1,29 @@
+<app-main-nav>
+
+    <div class="principal">
+
+        <div class="box-1">
+
+            <div *ngIf="isLoggedIn()" class="floatSection left boxChat">
+                <app-chat-room></app-chat-room>
+            </div>
+
+        </div>
+
+        <div class="box-2">
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+        <div class="box-3">
+
+            <div class="floatSection right">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</app-main-nav>

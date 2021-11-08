@@ -1,0 +1,60 @@
+
+    <mat-card class="example-card">
+
+        <mat-card-header>
+
+            <img mat-card-avatar [src]="currentUser.asnUserProfileImageUrl">
+            <mat-card-title>@{{currentUser.asnUser}}</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-progress-bar *ngIf="uploadProgress > 0" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+
+        <mat-card-content>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Write a post</mat-label>
+            </mat-form-field>
+            
+        </mat-card-content>
+
+        <div>
+            <textarea class="textspace" matInput placeholder="What's on your mind..." [(ngModel)]="postDescription"></textarea>
+        </div>
+
+        <mat-card-actions>
+
+            <div class="container box_shd">
+        
+                <mat-progress-bar *ngIf="uploadProgress > 0" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+        
+                <div class="_dspFlex flx_row  imageUpload">
+                    <div class="uploadContainer">
+                        <div class="bezel">
+                            <div class="icon">
+                                <mat-icon>upload</mat-icon>
+                            </div>
+                            <div class="label">
+                                <h3>
+                                    Click to Upload file
+                                </h3>
+                            </div>
+        
+                        </div>
+                        <input id="fileinput" class="uploadInput" type="file" accept="image/*" (change)="detectFiles($event)">
+                    </div>
+        
+        
+                    <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" style="width: 250px; height: 250px;" />
+
+                </div>
+                
+                    <button mat-raised-button color="primary"   (click)="savePost()">Post</button>
+            </div>
+
+        </mat-card-actions>
+        
+        <ng-content></ng-content>
+
+    </mat-card>
+    

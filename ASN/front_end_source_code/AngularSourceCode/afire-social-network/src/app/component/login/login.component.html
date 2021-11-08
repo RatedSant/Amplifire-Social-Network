@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="spacer"></div>
+
+    <div class="spacer2">
+        <div class="main">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="user@gmail.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="login()">Log In</button>
+
+            <div >
+                <div class="textLine" style="margin-top: 5%;">
+                    <button mat-raised-button #forgot color="warn" (click)="showText()">Forgot Password</button>
+                    <div *ngIf="showForgotTextArea ">
+                
+                        <mat-form-field class="inputLine" appearance="outline">
+                            <mat-label>Enter your Email</mat-label>
+                            <input matInput type="email" 
+                             placeholder="user@gmail.com" [(ngModel)]="recoverEmail">
+
+                        </mat-form-field>
+                
+                        <button mat-raised-button color="warn" (click)="forgotPassword()">Reset Password</button>
+                    </div>
+                </div>
+                <div style="margin-top: 5%;">
+                    <button mat-raised-button color="basic" (click)="goToRegister()">Register Account</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="spacer"></div>
+</div>

@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+
+    <mat-card-header>
+
+      <img mat-card-avatar [src]="givenUser.asnUserProfileImageUrl">
+
+      <mat-card-title>{{givenUser.asnUserFirstname}} {{givenUser.asnUserLastname}}</mat-card-title>
+
+      <mat-card-subtitle>@{{givenUser.asnUser}}</mat-card-subtitle>
+
+      <mat-card-subtitle class="change-subtitle">
+        <pre class="tab">Hobby:          {{givenUser.asnProfileHobby}}</pre>
+        <pre class="tab">Sport:          {{givenUser.asnProfileSport}}</pre>
+        <pre class="tab">Food:           {{givenUser.asnProfileFood}}</pre>
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content style="margin-bottom: 5%;">
+      About me: {{givenUser.asnProfileDescript}}
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions *ngIf="currentUser.asnUserId == givenUser.asnUserId">
+      <button style="margin-left: 18%;" (click)="navigateCreate()" mat-button>Create New Post</button>
+      <button style="margin-left: 18%;" (click)="navigateEdit()" mat-button>Edit Profile</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <app-user-post>
+  </app-user-post>
