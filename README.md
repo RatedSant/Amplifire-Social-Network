@@ -32,6 +32,7 @@ List of features
 To-do list:
 
 - User can direct messages to other people.
+- Create customizable themes for the user to chose.
 
 # Contributors
 
