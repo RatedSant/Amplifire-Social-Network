@@ -33,6 +33,12 @@ To-do list:
 
 - User can direct messages to other people.
 
+# Contributors
+
+- Andrew Carr
+- Eduardo Gonzalez
+- Santiago Ramirez
+
 # Getting Started 
 
 git clone : 
