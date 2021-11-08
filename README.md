@@ -41,4 +41,4 @@ To-do list:
 
 # Getting Started 
 
-git clone : 
+Git clone : https://github.com/RatedSant/Amplifire-Social-Network.git
